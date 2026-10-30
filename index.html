@@ -48,6 +48,8 @@ p{margin:0}
 .nav a{font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none}
 .nav a.cta{color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:3px}
 @media (max-width:760px){.nav a:not(.cta){display:none}.mark small{display:none}}
+.brand{display:inline-flex;flex-direction:column;align-items:center;gap:4px;line-height:1}
+.parent{font-size:.6rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--mist)}
 
 /* hero */
 .hero .wrap{display:grid;grid-template-columns:1fr;gap:20px;padding-block:28px 64px}
@@ -205,10 +207,63 @@ select{font:inherit;font-size:1rem;height:52px;border:1px solid var(--rule);back
 /* footer */
 footer .wrap{display:grid;grid-template-columns:1fr;gap:28px;padding-block:56px}
 @media (min-width:860px){footer .wrap{grid-template-columns:1fr auto;align-items:end}}
-footer .mark{font-size:3rem}
+footer .mark{font-size:clamp(2.2rem,8vw,3rem);white-space:nowrap}
+footer .nums span.eyebrow{font-family:var(--font-body);font-size:.7rem}
 footer .nums{display:flex;flex-direction:column;gap:4px;text-align:left}
 @media (min-width:860px){footer .nums{text-align:right}}
 footer .nums span{font-family:var(--font-display);font-size:1.9rem;font-variant-numeric:lining-nums}
+
+/* about + contact */
+.about .wrap{display:grid;grid-template-columns:1fr;gap:40px}
+@media (min-width:900px){.about .wrap{grid-template-columns:1fr 1.1fr;gap:72px;align-items:start}}
+.about h2{font-size:clamp(2.6rem,7vw,4.4rem);margin-top:16px}
+.about .story{display:flex;flex-direction:column;gap:18px;color:var(--ink-soft);font-weight:300;font-size:1.05rem;max-width:58ch}
+.about .story b{color:var(--ink);font-weight:500}
+.pillars{display:grid;grid-template-columns:1fr;border-top:1px solid var(--ink);margin-top:56px}
+@media (min-width:760px){.pillars{grid-template-columns:repeat(3,1fr);column-gap:40px}}
+.pillar{padding:26px 0 28px;border-bottom:1px solid var(--rule);display:flex;flex-direction:column;gap:8px}
+.pillar span{font-size:.68rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--eucalyptus)}
+.pillar h3{font-size:1.8rem}
+.pillar p{color:var(--ink-soft);font-weight:300;font-size:.95rem}
+.contact .grid{display:grid;grid-template-columns:1fr;border-top:1px solid var(--rule)}
+@media (min-width:760px){.contact .grid{grid-template-columns:repeat(3,1fr);column-gap:40px}}
+.ct{padding:26px 0;border-bottom:1px solid var(--rule);display:flex;flex-direction:column;gap:8px;min-width:0}
+.ct .lbl{font-size:.68rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--mist)}
+.ct b{font-family:var(--font-display);font-weight:400;font-size:clamp(1.7rem,4vw,2.2rem);line-height:1.1;overflow-wrap:anywhere;font-variant-numeric:lining-nums;user-select:all}
+.ct p{color:var(--ink-soft);font-weight:300;font-size:.92rem}
+.ct .link{margin-top:6px}
+footer .legal{grid-column:1/-1}
+
+/* legal */
+.legalwrap{padding-block:clamp(56px,8vw,96px);border-top:1px solid var(--rule)}
+.legalwrap h2{font-size:clamp(2.2rem,6vw,3.4rem);margin:14px 0 36px}
+.legalwrap details{border-top:1px solid var(--rule)}
+.legalwrap details:last-of-type{border-bottom:1px solid var(--rule)}
+.legalwrap summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0;font-family:var(--font-display);font-size:clamp(1.5rem,4vw,2rem)}
+.legalwrap summary::-webkit-details-marker{display:none}
+.legalwrap summary::after{content:"+";font-family:var(--font-body);font-weight:300;font-size:1.6rem;color:var(--mist)}
+.legalwrap details[open] summary::after{content:"−"}
+.doc{max-width:70ch;padding-bottom:36px;color:var(--ink-soft);font-weight:300;font-size:.95rem;display:flex;flex-direction:column;gap:12px}
+.doc h3{font-family:var(--font-body);font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);margin-top:14px}
+.doc b{color:var(--ink);font-weight:500}
+.doc ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.doc .meta{color:var(--mist);font-size:.85rem}
+.doc mark{background:#fff3c4;color:var(--ink);padding:0 4px}
+.legal-links{display:flex;flex-wrap:wrap;gap:6px 20px}
+.legal-links a{color:var(--ink-soft);text-decoration:underline;text-underline-offset:3px}
+.accept{font-size:.85rem;color:var(--mist);font-weight:300}
+.accept a{color:var(--ink-soft)}
+
+.faq{border-top:1px solid var(--rule)}
+.qa{border-top:1px solid var(--ink)}
+.qa details{border-bottom:1px solid var(--rule)}
+.qa summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;font-family:var(--font-display);font-size:clamp(1.35rem,3.6vw,1.75rem);line-height:1.2}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"+";font-family:var(--font-body);font-weight:300;font-size:1.5rem;color:var(--mist);flex:none}
+.qa details[open] summary::after{content:"−"}
+.qa p{max-width:62ch;color:var(--ink-soft);font-weight:300;padding:0 0 22px}
+.perk{display:inline-flex;gap:8px;align-items:center;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--eucalyptus);margin-top:18px}
+.perk::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--eucalyptus)}
 footer .legal{grid-column:1/-1;border-top:1px solid var(--rule);padding-top:20px;font-size:.78rem;color:var(--mist);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 .mbar{position:fixed;left:0;right:0;bottom:0;z-index:5;background:rgba(251,251,249,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--rule);
@@ -225,11 +280,14 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--rule);padding-top:20px
 <body>
 <header class="top pad">
   <div class="wrap">
-    <div class="mark">SAM'S <em>Essentiel</em><small>Guyane</small></div>
+    <div class="brand"><div class="mark">SAM'S <em>Essentiel</em></div><span class="parent">CEREBRUM</span></div>
     <nav class="nav" aria-label="Navigation">
       <a href="#collection">Collection</a>
       <a href="#comparer">Comparer</a>
       <a href="#livraison">Livraison</a>
+      <a href="#faq">FAQ</a>
+      <a href="#apropos">À propos</a>
+      <a href="#contact">Contact</a>
       <a class="cta" href="#commande">Commander</a>
     </nav>
   </div>
@@ -245,7 +303,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--rule);padding-top:20px
         <div class="meta">
           <div><b>0,70 €</b><span>le rouleau</span></div>
           <div><b>400</b><span>feuilles</span></div>
-          <div><b>100 %</b><span>pâte vierge</span></div>
+          <div><b>24 h</b><span>livraison offerte</span></div>
         </div>
         <div class="actions">
           <a class="btn" href="#collection">Découvrir les packs</a>
@@ -317,6 +375,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--rule);padding-top:20px
         <p class="dest"><span class="eyebrow">Commande envoyée au</span> <b id="n1"></b></p>
         <p class="err" id="formErr" role="alert" hidden></p>
         <a class="btn submit" id="sendBtn" href="#" target="_blank" rel="noopener">Valider ma commande</a>
+        <p class="accept">En validant, vous acceptez nos <a href="#cgv">conditions générales de vente</a> et notre <a href="#confidentialite">politique de confidentialité</a>.</p>
         <p class="fine">Le bouton ouvre WhatsApp avec votre commande et vos coordonnées déjà écrites : il ne reste qu'à appuyer sur Envoyer. Nous vous confirmons ensuite le jour de livraison.</p>
         <div class="paybox" id="payBox" hidden>
           <p><b>Paiement par carte</b><span id="payText"></span></p>
@@ -368,15 +427,36 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--rule);padding-top:20px
     <div class="wrap">
       <div class="head">
         <div><span class="eyebrow">Livraison</span><h2 id="h-liv">Chez vous, <em>en Guyane.</em></h2></div>
-        <p>Nous livrons à domicile dans les communes ci-dessous. Vous êtes ailleurs ? Écrivez-nous, nous trouverons une solution ensemble.</p>
+        <p>Livraison à domicile <b>gratuite, sous 24 heures</b>, sans minimum de commande, dans les communes ci-dessous. Vous êtes ailleurs ? Écrivez-nous, nous trouverons une solution ensemble.</p>
       </div>
       <div class="towns">
-        <div class="town"><b>Cayenne</b><span>À domicile</span></div>
-        <div class="town"><b>Matoury</b><span>À domicile</span></div>
-        <div class="town"><b>Kourou</b><span>À domicile</span></div>
-        <div class="town"><b>Saint-Laurent</b><span>À domicile</span></div>
-        <div class="town"><b>Soula</b><span>À domicile</span></div>
+        <div class="town"><b>Cayenne</b><span>Gratuit · 24 h</span></div>
+        <div class="town"><b>Matoury</b><span>Gratuit · 24 h</span></div>
+        <div class="town"><b>Kourou</b><span>Gratuit · 24 h</span></div>
+        <div class="town"><b>Saint-Laurent</b><span>Gratuit · 24 h</span></div>
+        <div class="town"><b>Soula</b><span>Gratuit · 24 h</span></div>
         <div class="town"><b>Autre commune</b><span>Sur demande</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about pad" id="apropos" aria-labelledby="h-about">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Qui sommes-nous</span>
+        <h2 id="h-about">Une entreprise d'ici, <em>contre la vie chère.</em></h2>
+      </div>
+      <div class="story">
+        <p><b>SAM'S Essentiel est une entreprise guyanaise</b>, créée en mai 2026 et spécialisée dans la distribution de produits de première nécessité.</p>
+        <p>Notre mission est de rendre les produits du quotidien plus accessibles aux familles de Guyane : des prix justes, une qualité constante et la livraison à domicile.</p>
+        <p>Hygiène, entretien de la maison, épicerie de base : notre catalogue grandit au fil des mois pour réunir, au même endroit, tout ce dont un foyer a besoin au quotidien.</p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="pillars" style="grid-column:1/-1">
+        <div class="pillar"><span>Notre mission</span><h3>Des prix justes</h3><p>Rendre les produits de première nécessité accessibles à toutes les familles de Guyane.</p></div>
+        <div class="pillar"><span>Notre exigence</span><h3>Une qualité constante</h3><p>Des produits sélectionnés avec soin, au même prix toute l'année.</p></div>
+        <div class="pillar"><span>Notre engagement</span><h3>Une équipe locale</h3><p>Des livreurs à Cayenne, Matoury et Kourou, joignables directement sur WhatsApp.</p></div>
       </div>
     </div>
   </section>
@@ -398,13 +478,130 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--rule);padding-top:20px
       </div>
     </div>
   </section>
+
+  <section class="contact pad" id="contact" aria-labelledby="h-contact">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Contact</span><h2 id="h-contact">Parlons-en, <em>simplement.</em></h2></div>
+        <p>Une question sur une commande, une livraison ou un tarif professionnel ? Écrivez-nous, nous répondons directement.</p>
+      </div>
+      <div class="grid">
+        <div class="ct"><span class="lbl">WhatsApp et téléphone</span><b>0694 99 37 56</b><p>Commandes, suivi de livraison et questions.</p><a class="link" href="https://wa.me/594694993756" target="_blank" rel="noopener">Écrire sur WhatsApp</a></div>
+        <div class="ct"><span class="lbl">E-mail</span><b>Fonke@cerebrum-sas.com</b><p>Devis professionnels, mairies et partenariats.</p></div>
+        <div class="ct"><span class="lbl">Où nous trouver</span><b>Matoury, Guyane</b><p>Livraison à Cayenne, Matoury, Kourou, Saint-Laurent et Soula.</p></div>
+      </div>
+    </div>
+  </section>
+<section class="faq pad" id="faq" aria-labelledby="h-faq">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="eyebrow">Questions fréquentes</span><h2 id="h-faq">Tout ce qu'il faut <em>savoir.</em></h2></div>
+      <p>Une autre question ? Écrivez-nous sur WhatsApp au 0694 99 37 56.</p>
+    </div>
+    <div class="qa">
+      <details><summary>La livraison est-elle payante ?</summary><p>Non. La livraison à domicile est gratuite, sans minimum de commande, même pour un seul pack.</p></details>
+      <details><summary>En combien de temps suis-je livré ?</summary><p>Sous 24 heures après la confirmation de votre commande. Nous convenons avec vous du créneau qui vous arrange : matin, après-midi ou fin de journée.</p></details>
+      <details><summary>Dans quelles communes livrez-vous ?</summary><p>Cayenne, Matoury, Kourou, Saint-Laurent-du-Maroni et Soula. Vous habitez ailleurs en Guyane ? Écrivez-nous, nous étudions chaque demande.</p></details>
+      <details><summary>Comment passer commande ?</summary><p>Choisissez votre pack et la quantité, remplissez vos coordonnées puis appuyez sur « Valider ma commande ». WhatsApp s'ouvre avec votre commande déjà écrite : il ne reste qu'à l'envoyer.</p></details>
+      <details><summary>Comment savoir que ma commande est bien prise en compte ?</summary><p>Nous vous répondons sur WhatsApp pour confirmer votre commande, le montant total et l'heure de livraison. Tant que vous n'avez pas reçu cette confirmation, la commande n'est pas encore validée.</p></details>
+      <details><summary>Comment puis-je payer ?</summary><p>Par carte bancaire en ligne, sur la page de paiement sécurisée SumUp, ou en espèces au moment de la livraison. Nous n'avons jamais accès à vos données bancaires.</p></details>
+      <details><summary>Que faire si mon pack arrive abîmé ?</summary><p>Signalez-le au livreur ou envoyez-nous une photo sur WhatsApp dans les 48 heures. Nous remplaçons le produit sans frais.</p></details>
+      <details><summary>Vous livrez les commerces et les mairies ?</summary><p>Oui. Pour les commandes en carton ou en palette, demandez un devis : le tarif est adapté à vos volumes et la livraison organisée sur rendez-vous.</p></details>
+    </div>
+  </div>
+</section>
+<section class="legalwrap pad" id="infos-legales" aria-labelledby="h-legal">
+  <div class="wrap">
+    <span class="eyebrow">Informations légales</span>
+    <h2 id="h-legal">Nos engagements, <em>par écrit.</em></h2>
+
+    <details id="mentions-legales">
+      <summary>Mentions légales</summary>
+      <div class="doc">
+        <h3>Éditeur du site</h3>
+        <p>Le site SAM'S Essentiel est édité par <b>CEREBRUM SAS</b>, société par actions simplifiée au capital de 1 000 €, immatriculée au RCS de Toulouse sous le numéro <b>920 979 457</b>.</p>
+        <p>Siège social : 1, rue du Roussillon, 31100 Toulouse<br>Établissement de Guyane : Matoury (97351), Guyane française</p>
+        <p>Téléphone : 0694 99 37 56<br>E-mail : Fonke@cerebrum-sas.com</p>
+        <p>Directeur de la publication : Fonke Soké, en qualité de Président.</p>
+        <h3>Hébergement</h3>
+        <p>GitHub, Inc. (service GitHub Pages)<br>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis<br>www.github.com</p>
+        <h3>Propriété intellectuelle</h3>
+        <p>Les textes, logos, photographies et éléments graphiques de ce site sont la propriété de CEREBRUM SAS ou utilisés avec autorisation. Toute reproduction sans accord écrit préalable est interdite.</p>
+        <h3>Responsabilité</h3>
+        <p>CEREBRUM SAS s'efforce de fournir des informations exactes et à jour. Les photographies des produits sont présentées à titre d'illustration et peuvent différer légèrement du produit livré.</p>
+      </div>
+    </details>
+
+    <details id="cgv">
+      <summary>Conditions générales de vente</summary>
+      <div class="doc">
+        <p class="meta">En vigueur à compter du 1er novembre 2026.</p>
+        <h3>1. Objet</h3>
+        <p>Les présentes conditions générales de vente (CGV) régissent les ventes de produits conclues par l'intermédiaire du site SAM'S Essentiel entre CEREBRUM SAS (le « Vendeur ») et toute personne passant commande (le « Client »). Toute commande implique l'acceptation sans réserve des présentes CGV.</p>
+        <h3>2. Produits</h3>
+        <p>Les produits proposés sont décrits et présentés avec la plus grande exactitude possible. Les offres sont valables dans la limite des stocks disponibles. En cas d'indisponibilité après commande, le Client en est informé et peut choisir un autre produit ou annuler sa commande ; toute somme déjà versée lui est alors remboursée.</p>
+        <h3>3. Prix</h3>
+        <p>Les prix sont indiqués en euros, toutes taxes comprises. La livraison est gratuite, sans minimum de commande, dans les communes desservies. Le Vendeur peut modifier ses prix à tout moment ; le prix applicable est celui affiché au moment de la commande.</p>
+        <h3>4. Commande</h3>
+        <p>Le Client sélectionne ses produits, renseigne ses coordonnées de livraison puis envoie sa commande par WhatsApp. La vente est conclue lorsque le Vendeur confirme la commande au Client, par message, en précisant le montant total et la date de livraison prévue. Le Vendeur peut refuser une commande pour un motif légitime, notamment une adresse hors zone de livraison ou un litige en cours avec le Client.</p>
+        <h3>5. Paiement</h3>
+        <p>Le Client règle sa commande au choix :</p>
+        <ul>
+          <li>par carte bancaire en ligne, via la plateforme de paiement sécurisée SumUp ; le Vendeur n'a jamais accès aux données de la carte ;</li>
+          <li>en espèces, au moment de la livraison, en remettant le montant exact au livreur dans la mesure du possible.</li>
+        </ul>
+        <h3>6. Livraison</h3>
+        <p>Les produits sont livrés à l'adresse indiquée par le Client, dans les communes desservies : Cayenne, Matoury, Kourou, Saint-Laurent-du-Maroni et Soula. Toute autre commune est étudiée sur demande. La livraison intervient en principe dans les 24 heures suivant la confirmation de la commande, sur un créneau convenu avec le Client.</p>
+        <p>Le Client vérifie l'état des produits à la réception et signale toute anomalie (produit manquant, emballage abîmé) au livreur ou par WhatsApp dans un délai de 48 heures. En cas d'absence au rendez-vous convenu, une nouvelle livraison est organisée avec le Client.</p>
+        <p>Si la livraison n'a pas lieu dans le délai convenu, le Client peut, après une mise en demeure restée sans effet, annuler sa commande et obtenir le remboursement des sommes versées.</p>
+        <h3>7. Droit de rétractation</h3>
+        <p>Conformément à l'article L221-18 du Code de la consommation, le Client consommateur dispose d'un délai de 14 jours à compter de la réception des produits pour exercer son droit de rétractation, sans avoir à se justifier. Il en informe le Vendeur par WhatsApp ou par téléphone au 0694 99 37 56, par une déclaration claire.</p>
+        <p>Conformément à l'article L221-28, 5° du même code, le droit de rétractation ne peut pas être exercé pour les produits scellés qui ont été descellés après la livraison et qui ne peuvent être renvoyés pour des raisons d'hygiène. Les packs et rouleaux de papier toilette dont le film d'emballage a été ouvert ne peuvent donc pas être repris.</p>
+        <p>Les produits retournés doivent être dans leur emballage d'origine intact. Le Vendeur rembourse le Client dans un délai de 14 jours à compter de la récupération des produits, par le moyen de paiement utilisé lors de la commande ou, pour un paiement en espèces, par un moyen convenu avec le Client.</p>
+        <h3>8. Garanties légales</h3>
+        <p>Les produits bénéficient de la garantie légale de conformité (articles L217-3 et suivants du Code de la consommation) et de la garantie contre les vices cachés (articles 1641 et suivants du Code civil). En cas de produit défectueux ou non conforme, le Client contacte le Vendeur, qui procède au remplacement ou au remboursement du produit.</p>
+        <h3>9. Données personnelles</h3>
+        <p>Les données transmises par le Client sont traitées conformément à notre politique de confidentialité, présentée ci-dessous.</p>
+        <h3>10. Réclamations et médiation</h3>
+        <p>Toute réclamation est adressée au Vendeur par WhatsApp ou par téléphone au 0694 99 37 56. En l'absence de solution amiable dans un délai de deux mois, le Client consommateur peut recourir gratuitement au médiateur de la consommation dont relève le Vendeur : <mark>[nom et coordonnées du médiateur]</mark>.</p>
+        <h3>11. Droit applicable</h3>
+        <p>Les présentes CGV sont soumises au droit français. À défaut d'accord amiable, tout litige relève des juridictions compétentes dans les conditions prévues par la loi.</p>
+      </div>
+    </details>
+
+    <details id="confidentialite">
+      <summary>Politique de confidentialité</summary>
+      <div class="doc">
+        <h3>Responsable du traitement</h3>
+        <p>CEREBRUM SAS, éditeur du site SAM'S Essentiel, est responsable du traitement des données personnelles collectées sur ce site. Contact : 0694 99 37 56 ou Fonke@cerebrum-sas.com.</p>
+        <h3>Données collectées</h3>
+        <p>Lorsque vous passez commande, nous recueillons uniquement les informations nécessaires : nom et prénom, numéro de téléphone, adresse et commune de livraison, créneau souhaité, mode de paiement choisi et, le cas échéant, votre message pour le livreur. Le site ne vous demande aucune donnée bancaire.</p>
+        <h3>Utilisation des données</h3>
+        <p>Ces données servent exclusivement à traiter votre commande, organiser la livraison, vous contacter au sujet de votre commande et assurer le suivi de la relation client. Ce traitement est fondé sur l'exécution du contrat de vente. Nous ne vendons ni ne louons vos données.</p>
+        <h3>Destinataires</h3>
+        <p>Vos données sont accessibles uniquement aux personnes de notre équipe chargées des commandes et des livraisons. Elles transitent par les services suivants :</p>
+        <ul>
+          <li>WhatsApp (Meta), par lequel vous nous transmettez votre commande ;</li>
+          <li>SumUp, si vous choisissez le paiement par carte : SumUp traite vos données de paiement selon sa propre politique de confidentialité.</li>
+        </ul>
+        <p>Ces prestataires peuvent traiter certaines données en dehors de l'Union européenne, avec les garanties prévues par la réglementation.</p>
+        <h3>Durée de conservation</h3>
+        <p>Les données de commande sont conservées pendant la durée de la relation commerciale, puis trois ans après votre dernière commande. Les pièces comptables (factures) sont conservées dix ans, conformément aux obligations légales.</p>
+        <h3>Vos droits</h3>
+        <p>Conformément au Règlement général sur la protection des données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité de vos données. Pour les exercer, contactez-nous par WhatsApp ou par téléphone au 0694 99 37 56. Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la CNIL (www.cnil.fr).</p>
+        <h3>Cookies</h3>
+        <p>Ce site n'utilise pas de cookies publicitaires ni d'outil de mesure d'audience. Les polices d'écriture sont chargées depuis Google Fonts, ce qui transmet votre adresse IP à Google lors de l'affichage de la page.</p>
+      </div>
+    </details>
+  </div>
+</section>
 </main>
 
 <footer class="pad">
   <div class="wrap">
-    <div><div class="mark">SAM'S <em>Essentiel</em></div><p class="eyebrow" style="margin-top:10px">Les essentiels du quotidien, livrés chez vous en Guyane</p></div>
+    <div><div class="brand"><div class="mark">SAM'S <em>Essentiel</em></div><span class="parent">CEREBRUM</span></div><p class="eyebrow" style="margin-top:14px">Les essentiels du quotidien, livrés chez vous en Guyane</p></div>
     <div class="nums"><span class="eyebrow">Commandes</span><span id="f1"></span></div>
-    <div class="legal"><span>Prix au rouleau : 0,70 €. Pack de 12 : 8,40 €. Pack de 48 : 33,60 €.</span><span>Paiement par carte en ligne ou en espèces à la livraison</span></div>
+    <div class="legal"><span>Prix au rouleau : 0,70 €. Pack de 12 : 8,40 €. Pack de 48 : 33,60 €.</span><span>Paiement par carte en ligne ou en espèces à la livraison</span><span>SAM'S Essentiel est une activité de CEREBRUM SAS · SIREN 920 979 457</span><span class="legal-links"><a href="#mentions-legales">Mentions légales</a><a href="#cgv">Conditions générales de vente</a><a href="#confidentialite">Confidentialité</a></span></div>
   </div>
 </footer>
 
@@ -413,6 +610,15 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--rule);padding-top:20px
   <a class="btn" href="#commande">Commander</a>
 </div>
 
+<script>
+(function(){
+  function openLegal(){var id=(location.hash||'').slice(1);var d=id&&document.getElementById(id);
+    if(d&&d.tagName==='DETAILS'){d.open=true;d.scrollIntoView({block:'start'})}}
+  window.addEventListener('hashchange',openLegal);openLegal();
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;
+    var d=document.getElementById(a.getAttribute('href').slice(1));if(d&&d.tagName==='DETAILS'){e.preventDefault();d.open=true;d.scrollIntoView({block:'start'})}});
+})();
+</script>
 <script>
 (function(){
   var LOGO=new Image();LOGO.onload=function(){redraw()};LOGO.src="data:image/webp;base64,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";
